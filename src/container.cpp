@@ -42,3 +42,22 @@ void AddBTreeNode(BTree* &Node, char *data) // добавление узла в дерево
       AddBTreeNode(Node->right, data); // добавляем в правое поддерево
   }
 }
+
+BTree* SearchBTree(BTree* Root, char* data) // поиск элемента
+{
+	if(Root != NULL) // если узел не пуст
+	{
+		int compare = strcmp(data, Root->data); // сравнить ключи
+
+		if(compare == 0)
+			return Root; // элемент найден
+
+		if(compare < 0) // если искомый ключ меньше ключа текущего узла
+			return SearchBTree(Root->left, data); // продолжаем поиск в левом поддереве
+
+		if(compare > 0)// если искомый ключ больше ключа текущего узла
+			return SearchBTree(Root->left, data); // продолжаем поиск в правом поддереве
+	}
+
+	return NULL; // элемент не найден
+}
