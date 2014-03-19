@@ -14,3 +14,31 @@ void FreeBTree(BTree* &Node) // уничтожение дерева
     Node = NULL; 
   }
 }
+
+void InitBTreeNode(BTree* &Node, char* data) // инициализация узла дерева
+{
+  Node = new BTree;
+  // инициализация данных
+  Node->data = NULL;
+  if(data != NULL)
+  {
+	  Node->data = new char[strlen(data)];
+	  strcpy(Node->data, data);
+  }
+  // инициализация поддеревьев
+  Node->left = NULL;
+  Node->right = NULL;
+}
+                  
+void AddBTreeNode(BTree* &Node, char *data) // добавление узла в дерево
+{
+  if(Node == NULL) // если узел пуст
+	  InitBTreeNode(Node, data); // создаём новый узел на месте пустого
+  else
+  {
+    if(strcmp(data, Node->data) < 0)  // если новый ключ "меньше" ключа текущего узла
+      AddBTreeNode(Node->left, data); // добавляем в левое поддерево
+    else
+      AddBTreeNode(Node->right, data); // добавляем в правое поддерево
+  }
+}
