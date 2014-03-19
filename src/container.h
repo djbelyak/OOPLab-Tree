@@ -1,3 +1,5 @@
+#include <iostream>
+
 struct BTree // описание узла дерева
 {
 	char* data; // данные узла (строка)
@@ -5,4 +7,4 @@ struct BTree // описание узла дерева
 	BTree* right; // правое поддерево
 };
 
-void hello_world();
+void FreeBTree(BTree*&); // уничтожение дерева

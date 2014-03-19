@@ -1,5 +1,16 @@
-#include <iostream>
-void hello_world()
+#include "container.h"
+
+void FreeBTree(BTree* &Node) // уничтожение дерева
 {
-    std::cout << "Hello, World!" << std::endl;
+  if(Node != NULL)
+  {
+	// уничтожение поддеревьев
+    FreeBTree(Node->left);
+    FreeBTree(Node->right);
+	// уничтожение данных и узла
+    delete Node->data;
+    delete Node;
+
+    Node = NULL; 
+  }
 }
