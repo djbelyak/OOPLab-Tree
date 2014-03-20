@@ -1,4 +1,6 @@
 \documentclass[a4paper,12pt]{article}
+\usepackage{ucs}        %для использования юникода
+
 \usepackage[T2A]{fontenc}  %поддержка кириллицы в ЛаТеХ
 \addtolength{\hoffset}{-1.7mm} % горизонтальное смещение всего текста как целого
 \usepackage[utf8]{inputenc}  %По умолчанию кодировка KOI8 для *nix-систем
@@ -19,15 +21,11 @@
  \renewcommand{\baselinestretch}{1.24}
 \usepackage{graphicx} %разрешить включение PostScript-графики
 \graphicspath{{Images/}} %относительный путь к каталогу с рисунками,это может быть мягкая ссылка
-\usepackage{listings}
-\lstloadlanguages{[LaTeX]TeX,bash,MetaPost,Fortran,Perl,C++,make}
-\lstset{language=[LaTeX]TeX,
-extendedchars=true,
-escapechar=|,
-frame=tb,
-commentstyle=\itshape,
-stringstyle=\bfseries}
 
+
+\usepackage{listingsutf8}
+\lstset{columns=fixed,language=C++,%
+basicstyle=\scriptsize,breaklines=\true,inputencoding=cp1251}
 
 \RequirePackage{caption}
 \DeclareCaptionLabelSeparator{defffis}{ -- }
