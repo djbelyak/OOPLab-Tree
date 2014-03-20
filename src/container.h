@@ -8,6 +8,7 @@ struct BTree // описание узла дерева
 };
 
 void FreeBTree(BTree*&); // уничтожение дерева
+void InitBTree(BTree*&); // инициализация дерева
 void AddBTreeNode(BTree*&, char*); // добавление узла в дерево
 void InitBTreeNode(BTree*&, char*); // инициализация узла дерева
 BTree* SearchBTree(BTree*, char*); // поиск элемента
